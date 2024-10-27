@@ -1,18 +1,40 @@
-//
-//  DetailView.swift
-//  TodoList
-//
-//  Created by TAYAP on 27/10/2567 BE.
-//
+
 
 import SwiftUI
 
 struct DetailView: View {
+    
+    
+    var passedValue: String
+    
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+        VStack {
+            Image(systemName: "smiley.fill")
+                .resizable()
+                .scaledToFit()
+                .foregroundStyle(.purple)
+            
+            Text("Wecome to DetailView! -> \(passedValue)")
+                .font(.largeTitle)
+                .multilineTextAlignment(.center)
+            
+            Spacer()
+            
+            Button("Go Back"){
+                dismiss()
+            }
+            
+            
+            
+        }
+        .padding()
+       
     }
 }
 
 #Preview {
-    DetailView()
+    DetailView(passedValue: "Item 1")
 }
